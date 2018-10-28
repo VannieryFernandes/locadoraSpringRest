@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.locadora.apirest.models.Veiculo;
 import com.locadora.apirest.repository.VeiculoRepository;
@@ -32,15 +33,18 @@ public class VeiculoController {
 	public Veiculo veiculoUnico(@PathVariable(value="id") long idVeiculo) {
 		return veiculoRepository.findById(idVeiculo);
 	}
+	@GetMapping("/veiculod/{dis}")
+	public List<Veiculo> veiculoDisponivel(@PathVariable(value="dis") long dis) {
+		return veiculoRepository.findDisponivel(dis);
+	}
 	
 	@PostMapping("/veiculo")
 	public Veiculo salvaVeiculo(@RequestBody Veiculo veiculo) {
 		return veiculoRepository.save(veiculo);	
 		
 	}
-	
-	@DeleteMapping("/veiculo")
-	public void deletarVeiculo(@RequestBody Veiculo veiculo) {
+	@DeleteMapping("/veiculo/{id}")
+	public void veiculoUnico(@PathVariable(value="id") Veiculo veiculo) {
 		veiculoRepository.delete(veiculo);
 	}
 	

@@ -22,7 +22,7 @@ public class Veiculo implements Serializable {
 	private String cor;
 
 	@Column(nullable=false)
-	private int disponivel;
+	private long disponivel;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -51,11 +51,11 @@ public class Veiculo implements Serializable {
 		this.cor = cor;
 	}
 
-	public int getDisponivel() {
+	public long getDisponivel() {
 		return this.disponivel;
 	}
 
-	public void setDisponivel(int disponivel) {
+	public void setDisponivel(long disponivel) {
 		this.disponivel = disponivel;
 	}
 
