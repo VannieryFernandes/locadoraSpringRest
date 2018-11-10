@@ -49,8 +49,9 @@ public class VeiculoController {
 	}
 	
 	@PutMapping("/veiculo")
-	public Veiculo atualizaVeiculo(@RequestBody Veiculo veiculo) {
-		return veiculoRepository.save(veiculo);
+	public Veiculo updateVeiculo(@RequestBody Veiculo veiculo) {
+		return veiculoRepository.save(veiculo);	
+		
 	}
 		
 

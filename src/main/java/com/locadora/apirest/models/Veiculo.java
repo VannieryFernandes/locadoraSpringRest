@@ -31,7 +31,10 @@ public class Veiculo implements Serializable {
 
 	@Column(nullable=false, length=8)
 	private String placa;
-
+	
+	@Column(nullable=false)
+	private String marca;
+	
 	//bi-directional many-to-one association to Reserva
 	@OneToMany(mappedBy="veiculo")
 	private List<Reserva> reservas;
@@ -49,6 +52,16 @@ public class Veiculo implements Serializable {
 
 	public void setCor(String cor) {
 		this.cor = cor;
+	}
+	
+	
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	public long getDisponivel() {
